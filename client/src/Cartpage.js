@@ -24,7 +24,7 @@ function CartPage() {
 
   const fetchCartData = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/cart/${userId}`);
+      const response = await axios.get(`https://pizza-house-api.vercel.app/cart/${userId}`);
       const cartData = response.data;
       setCart(cartData);
       calculateTotalPrice(cartData);
@@ -59,7 +59,7 @@ function CartPage() {
       localStorage.setItem('cartItems', JSON.stringify(updatedCart));
 
       // Update the cart on the server-side
-      await axios.post(`http://localhost:5000/cart/${userId}`, { cart: updatedCart });
+      await axios.post(`https://pizza-house-api.vercel.app/cart/${userId}`, { cart: updatedCart });
     } catch (error) {
       console.error('Error updating quantity:', error);
     }
@@ -74,7 +74,7 @@ function CartPage() {
       localStorage.setItem('cartItems', JSON.stringify(updatedCart));
 
       // Update the cart on the server-side
-      await axios.post(`http://localhost:5000/cart/${userId}`, { cart: updatedCart });
+      await axios.post(`https://pizza-house-api.vercel.app/cart/${userId}`, { cart: updatedCart });
     } catch (error) {
       console.error('Error removing item:', error);
     }
