@@ -125,7 +125,7 @@ function HomePage() {
                   className="form-control mb-2"
                 />
               </div>
-              <div className="modal-footer" style={{marginRight:'190px'}}>
+              <div className="modal-footer d-flex justify-content-center">
                 <button type="button" className="btn btn-primary" onClick={handleAdminLogin}>Login</button>
                 {/* <button type="button" className="btn btn-secondary" onClick={() => setShowModal(false)}>
                   Close
