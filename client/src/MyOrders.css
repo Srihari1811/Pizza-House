@@ -1,0 +1,80 @@
+/* Additional styles for spacing and layout */
+.navbar {
+  justify-content: flex-start; /* Position the back button to the left */
+}
+
+
+
+.custom-title {
+  font-size: 1.5rem; /* Adjusted size for better responsiveness */
+  font-weight: bold;
+  text-align: center;
+}
+
+.custom-back-btn {
+  background-color: #ff5733; /* Change to your preferred color */
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+  background-color: #f2f2f2;
+}
+
+.table-hover tbody tr:hover {
+  background-color: #eaeaea;
+}
+
+.thead-dark th {
+  background-color: #343a40;
+  color: white;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .custom-title {
+    font-size: 1.5rem; /* Smaller font size for mobile devices */
+  }
+
+  .table-responsive {
+    overflow-x: auto; /* Ensure tables can be scrolled horizontally on small screens */
+  }
+  .table td ul li {
+    font-size: 1rem; /* Adjust font size for cart items */
+    font-weight: normal; /* Remove bold */
+    text-align: left; /* Align text to the left within the list item */
+  }
+  .custom-title {
+    text-align: center;
+    font-size: 1.5rem; /* Adjust font size as needed */
+  }
+  
+  .table {
+    text-align: center; /* Center-align all table content */
+  }
+  .table thead th {
+    font-size: 1rem; /* Smaller font size for table headers */
+  }
+  .table th,
+  .table td {
+    vertical-align: middle; /* Center content vertically */
+    font-size: 1rem;
+  }
+ 
+  .btn-info {
+    width: 200%; /* Make the button full-width on smaller screens */
+  }
+
+  .navbar {
+    padding: 1rem; /* Adjust padding for smaller screens */
+  }
+
+  .custom-back-btn {
+    font-size: 0.8rem; /* Smaller font size for the back button on small screens */
+  }
+}
+
+.shadow-sm {
+  box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075) !important;
+}

@@ -1,0 +1,33 @@
+/* Custom button styles */
+  .custom-btn {
+    padding: 8px 16px; /* Decrease padding to reduce button size */
+    font-size: 0.9rem; /* Adjust font size */
+    border-radius: 15px; /* Slightly rounded corners */
+    color: #fff;
+    
+  }
+  .custom-btn-category {
+    background-color: #ff5722; /* Custom color for Add Category button */
+
+  }
+  
+  .custom-btn-category:hover {
+    background-color: #e64a19;
+    transform: scale(1.05);
+  }
+  
+  .custom-btn-product {
+    background-color: #009688; /* Custom color for Add Product button */
+  }
+  
+  .custom-btn-product:hover {
+    background-color: #00796b;
+    transform: scale(1.05);
+  }
+  .custom-btn-orders{
+    background-color: #ffe600;
+  }  
+  .custom-btn-orders:hover {
+    background-color: #fbff00;
+    transform: scale(1.05);
+  }

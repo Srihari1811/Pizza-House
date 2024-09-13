@@ -1,0 +1,141 @@
+.payment-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.custom-icons {
+  font-size: 4vw; /* Adjust font size based on viewport width */
+  color: #007bff;
+  margin: 5px;
+  
+}
+
+.icon {
+  cursor: pointer;
+  margin-left: 2vw; /* Adjust the margin based on viewport width */
+  font-size: 2vw; /* Adjust icon size to be responsive */
+  margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+  .custom-icons {
+    font-size: 5vw; /* Make icons bigger on smaller screens */
+  }
+
+  .icon {
+    margin-left: 5px; /* Reduce margin on smaller screens */
+    font-size: 5vw; /* Resize icons for smaller screens */
+  }
+}
+
+@media (max-width: 576px) {
+  .custom-icons {
+    font-size: 6vw; /* Increase icon size for very small devices */
+  }
+
+  .icon {
+    margin-left: 3px; /* Reduce margin further on very small devices */
+    font-size: 6vw; /* Resize icons for very small screens */
+  }
+}
+
+
+
+.custom-total-price {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #ffffff; /* Ensure the total price stands out on the background */
+}
+
+.form-control {
+  font-size: 1rem;
+}
+
+.btn-primary {
+  font-size: 1.25rem;
+  background-color: #007bff; /* Custom color for the Pay Now button */
+  border-color: #007bff;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  border-color: #004085;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.payment-heading {
+  color: #ffffff; /* Light pink color for heading */
+  font-size: 30px; /* Increase the size */
+  font-weight: bold;
+}
+
+.order-summary-container {
+  background-color: dark; /* Light gray background for the order summary */
+  background-image: url('https://img.freepik.com/premium-vector/vector-blue-simple-background-design_374216-67.jpg'); /* Add your image URL here */
+  background-size: cover; /* Ensure the image covers the entire container */
+  background-position: center; /* Center the background image */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.712); /* Light shadow for elevation */
+  padding: 20px;
+  margin-top: -15px;
+  border: 1px solid #ffffff;
+  color: #ffffff; /* Ensure text remains visible on the image */
+}
+
+.order-summary-details {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.order-summary-details p {
+  display: flex;
+  align-items: center;
+  margin: 5px 0; /* Reduce margin to bring items closer */
+  font-size: 1.2rem;
+  color: #000000;
+  font-weight: bold;
+  margin-left: -5px;
+}
+
+.order-summary-details p strong {
+  color: #2600ff;
+  font-size: 1.2rem;
+  min-width: 180px; /* Reduce the width to decrease space between label and value */
+  text-align: left;
+  font-weight: bold;
+}
+
+h5 {
+  margin-bottom: 10px; /* Reduce bottom space between heading and details */
+}
+
+.order-summary-details p:last-child {
+  font-size: 1.2rem;
+  color: #000000; /* Dark gray for Total Price */
+  text-align: left;
+  font-weight: bold;
+  margin-left: -5px;
+}
+
+.list-unstyled li {
+  font-size: 1.3rem;
+  color: #000000; /* Dark gray for cart items */
+  font-weight: bold;
+ 
+
+}
+
+.alert {
+  background-color: #f8f400; /* Light green background for success alert */
+  border-color: #eeff00;
+  color: #000000; /* Dark green text color for success alert */
+  font-size: large;
+  border-radius: 15px;
+}
+

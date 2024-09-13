@@ -1,0 +1,125 @@
+:root {
+  /* Dark background colors */
+  --background-color: #121212;
+  --card-background: #1e1e1e;
+  --text-color: #e0e0e0;
+  
+  /* Colors for specific elements */
+  --cart-title-color: #ff5722; /* Bright accent color */
+  --card-title-color: #f5a623; /* Different color for card titles */
+  --button-background: #333; /* Dark background for buttons */
+  --button-text: #e0e0e0; /* Light text color for buttons */
+  --button-hover-background: #444; /* Button hover color */
+  --remove-button-color: #d32f2f; /* Color for remove button */
+  --order-button-color: #1976d2; /* Color for order button */
+  --add-more-button-color: #4caf50; /* Color for add more button */
+  --price-color: #ffd54f; /* Color for product prices */
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.custom-cart-title {
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  font-size: 2rem;
+  display: block;
+  margin: 0 auto;
+}
+
+.custom-card {
+  background-color: var(--card-background);
+  border: 1px solid #333;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: left; /* Align content to the left */
+}
+
+.custom-card-title {
+  font-size: 1.25rem;
+  color: var(--card-title-color); /* Different color for card titles */
+  margin-top: 10px; /* Space between image and title */
+}
+
+.custom-card-img {
+  max-height: 300px; /* Increase image size */
+  object-fit: cover;
+  border-radius: 10px 10px 0 0; /* Rounded corners for the top */
+}
+
+.custom-card-body {
+  padding: 10px; /* Space around the content */
+}
+
+.custom-card-text {
+  color: var(--price-color); /* Color for product prices */
+  font-size: 2rem; /* Adjust font size if needed */
+}
+
+.custom-quantity-container {
+  display: flex;
+  align-items: center; /* Align items vertically */
+  gap: 20px; /* Space between buttons and quantity display */
+}
+
+.custom-quantity-display {
+  font-size: 1.25rem; /* Adjust font size as needed */
+  color: var(--text-color);
+}
+
+.custom-quantity-button {
+  border: none;
+  background-color: var(--button-background);
+  color: var(--button-text);
+  border-radius: 10px; /* Rounded corners for the buttons */
+  padding: 5px 10px;
+  margin-left: 10px; /* Adjust button size */
+  margin-right: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.custom-quantity-button:hover {
+  background-color: var(--button-hover-background);
+}
+
+.custom-remove-button {
+  background-color: var(--remove-button-color); /* Color for the remove button */
+  color: var(--button-text);
+  border-radius: 15px; /* Curved button */
+  padding: 5px 15px;
+
+}
+
+.custom-remove-button:hover {
+  background-color: #c62828; /* Slightly different shade on hover */
+}
+
+.custom-pay-button {
+  background-color: var(--order-button-color); /* Color for order button */
+  color: var(--button-text);
+  border-radius: 15px; /* Curved corners */
+  padding: 10px 20px;
+}
+
+.custom-add-more-button {
+  background-color: var(--add-more-button-color); /* Color for add more button */
+  color: var(--button-text);
+  border-radius: 15px; /* Curved corners */
+  padding: 10px 20px;
+}
+
+.custom-total-price {
+  color: var(--price-color); /* Color for total price */
+  font-size: 1.5rem; /* Larger font size for the total price */
+}

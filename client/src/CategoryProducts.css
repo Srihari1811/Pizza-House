@@ -1,0 +1,132 @@
+body {
+  background-color: #121212;
+  color: #ffffff;
+  margin: 0%;
+  padding: 0%;
+}
+
+.navigation-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.back-button, .cart-button {
+  padding: 15px; /* Increase padding */
+  font-size: 30px; /* Increase font size for the icons */
+  width: 60px; /* Increase button width */
+  height: 60px; /* Increase button height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.back-button:hover, .cart-button:hover {
+  background-color: #2980b9; /* Keep the hover effect */
+}
+
+
+.search-input {
+  background-color: #333;
+  border: 1px solid #555;
+  color: #fff;
+}
+
+.search-input::placeholder {
+  color: #aaa;
+}
+
+.product-image {
+  width: 155px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease-in-out;
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  background-color: #1f1f1f;
+  border: none;
+}
+
+.unavailable-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(87, 60, 60, 0.7);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap');
+
+
+.alert-info {
+  background-color: #444;
+  border-color: #555;
+  color: #fff;
+  width: 200px;
+}
+
+.fixed-bottom {
+  margin-bottom: 10px; /* Adds space below the alert to prevent hiding content */
+}
+.container {
+  padding-bottom: 100px; /* Adds space at the bottom of the page */
+}
+.alert {
+  background-color: #444;
+  border-color: #555;
+  color: #fff;
+  padding: 20px; /* Increase padding for a larger alert */
+  font-size: 1.2rem; /* Increase font size */
+  font-weight: bold; /* Make the text bold */
+  border-radius: 8px; /* Rounded corners for better appearance */
+  width: 100%; /* Full width */
+  max-width: 600px; /* Limit max width */
+  text-align: center; /* Center the text */
+  position: relative; /* For positioning */
+  margin: 10px 0; /* Margin for spacing */
+}
+
+.alert {
+  display: flex;
+  justify-content: center; /* Aligns content to the right */
+}
+
+.alert a {
+  color: #ffeb3b; /* Color for the link */
+  text-decoration: underline; /* Underline the link */
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+/* For tablets and smaller screens */
+@media (max-width: 768px) {
+  .alert a {
+    font-size: 18px;
+  }
+}
+
+/* For mobile phones */
+@media (max-width: 480px) {
+  .alert a {
+    font-size: 16px;
+  }
+}
+
+

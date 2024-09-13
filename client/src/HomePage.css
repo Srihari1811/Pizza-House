@@ -1,0 +1,133 @@
+.homepage-container {
+  background-color: #1c1c1c;
+  color: #ffffff;
+}
+
+.search-bar {
+  position: relative;
+}
+
+.search-input {
+  width: 100%;
+  border-radius: 25px;
+  padding: 10px 20px;
+  background-color: #fff;
+  border: none;
+  color: #333;
+}
+
+.special-deal {
+  margin: 20px 0;
+}
+
+.special-deal .card {
+  border-radius: 15px;
+  background-color: #ffcc00;
+}
+
+.restaurant-card {
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s;
+  background-color: #fff;
+}
+
+.restaurant-card:hover {
+  transform: scale(1.05);
+}
+
+.restaurant-card img {
+  height: 230px;
+  object-fit: cover;
+}
+
+.no-results {
+  color: #fff;
+  font-style: italic;
+}
+
+footer {
+  background-color: #1c1c1c;
+  color: #fff;
+  padding: 20px 0; /* Adjust padding as needed */
+}
+
+footer a {
+  color: #ffc107; /* Bootstrap warning color */
+}
+
+footer h5 {
+  margin-bottom: 10px;
+}
+
+/* Bottom Navigation Bar Styles */
+.bottom-nav {
+  height: 68px; /* Adjust height as needed */
+  /* margin-top: 100px; */
+  z-index: 1000;
+  background-color: #000; /* Black background for contrast */
+  display: flex; /* Ensure items are displayed in a row */
+  align-items: flex-end; /* Align items to the bottom */
+  border-radius: 20px;
+}
+
+.bottom-nav ul {
+  margin: 0; /* Reset margin */
+  padding: 0; /* Reset padding */
+  display: flex; /* Use flexbox for the list */
+  justify-content: space-around; /* Space evenly */
+  width: 100%; /* Full width */
+}
+
+.bottom-nav a {
+  flex: 1; /* Each link takes equal space */
+  text-decoration: none;
+  color: #ffffff;
+  text-align: center; /* Center align icons and text */
+  transition: transform 0.2s; /* Smooth transition for hover effect */
+}
+
+.bottom-nav a:hover {
+  transform: scale(1.2); /* Increase size on hover */
+}
+
+.bottom-nav i {
+  font-size: 25px; /* Slightly smaller icons */
+}
+
+.bottom-nav div {
+  font-size: 11px; /* Reduced font size for text labels */
+  margin-top: 1px; /* Space between icon and text */
+}
+
+.cart-icon-container {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.cart-icon-container .fas.fa-shopping-cart {
+  font-size: 1.5rem; /* Adjust size as needed */
+}
+
+.cart-icon-container .badge {
+  position: absolute;
+  top: -10px; /* Adjust position as needed */
+  right: -10px; /* Adjust position as needed */
+  font-size: 0.75rem; /* Adjust size as needed */
+  padding: 0.2rem 0.5rem; /* Adjust padding as needed */
+}
+/* HomePage.css */
+
+.restaurant-card {
+  background-color: #f8f9fa; /* Adjust if needed */
+}
+
+.restaurant-card .card-body {
+  background-color: #282c31; /* Dark background for the text area */
+  color: #ffffff; /* White text color */
+}
+
+.restaurant-card .card-title {
+  color: #ffffff; /* Ensure the category name is white */
+}

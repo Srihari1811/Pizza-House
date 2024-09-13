@@ -1,0 +1,79 @@
+/* Base styles for larger screens */
+.product-form {
+  background-color: #1f1f1f;
+}
+
+.product-list {
+  background-color: #1f1f1f;
+}
+
+.search-bar input {
+  border-radius: 2rem;
+  border-color: #ced4da;
+}
+
+.product-item {
+  background-color: #2e2e2e;
+}
+
+.product-image {
+  width: 80px;
+  height: 80px;
+}
+
+.product-details {
+  flex-grow: 1;
+}
+
+.product-name, .product-price, .product-availability {
+  color: #fcfcfc;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .product-item {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: center;
+  }
+
+  .product-image {
+    width: 200%;
+    height: 250%;
+  }
+
+  .product-actions {
+    margin-top: 1rem;
+  }
+
+  .product-actions button {
+    font-size: 1.5rem;
+    padding: 0.5rem;
+  }
+
+  .product-form {
+    padding: 1.5rem;
+  }
+  
+  .search-bar input {
+    width: 100%;
+  }
+  
+  .alert {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .btn {
+    font-size: 0.8rem;
+  }
+  
+  .product-name, .product-price {
+    font-size: 1.5rem;
+  }
+  
+  .product-availability {
+    font-size: 1.5rem;
+  }
+}
