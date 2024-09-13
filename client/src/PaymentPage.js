@@ -41,7 +41,7 @@ function PaymentPage() {
 
   const handlePayment = async () => {
     try {
-      const response = await fetch('http://localhost:5000/pay', {
+      const response = await fetch('https://pizza-house-api.vercel.app/pay', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -62,7 +62,7 @@ function PaymentPage() {
           handler: function (response) {
             console.log(response);
 
-            fetch('http://localhost:5000/submitOrder', {
+            fetch('https://pizza-house-api.vercel.app/submitOrder', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
