@@ -79,7 +79,8 @@ body {
   background-color: #444;
   border-color: #555;
   color: #fff;
-  width: 200px;
+  width: 300px;
+  text-align: center;
 }
 
 .fixed-bottom {
@@ -88,12 +89,12 @@ body {
 .container {
   padding-bottom: 100px; /* Adds space at the bottom of the page */
 }
-.alert {
+.notification-alert {
   background-color: #444;
   border-color: #555;
   color: #fff;
   padding: 20px; /* Increase padding for a larger alert */
-  font-size: 1.2rem; /* Increase font size */
+  font-size: 1rem; /* Increase font size */
   font-weight: bold; /* Make the text bold */
   border-radius: 8px; /* Rounded corners for better appearance */
   width: 100%; /* Full width */
@@ -112,6 +113,7 @@ body {
   color: #ffeb3b; /* Color for the link */
   text-decoration: underline; /* Underline the link */
   font-size: 20px;
+  font-weight: bold;
   margin-left: 10px;
 }
 
