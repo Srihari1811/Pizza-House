@@ -12,7 +12,7 @@ function MyOrders() {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const response = await fetch('http://localhost:5000/getOrders');
+        const response = await fetch('https://pizza-house-api.vercel.app/getOrders');
         if (!response.ok) {
           throw new Error('Failed to fetch orders');
         }
