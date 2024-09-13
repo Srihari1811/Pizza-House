@@ -97,7 +97,7 @@ function CategoryProducts() {
       </div>
 
       {notification && (
-  <div className="alert notification-alert" role="alert">
+  <div className="alert-info notification-alert" role="alert-info">
     {notification}
   </div>
 )}
