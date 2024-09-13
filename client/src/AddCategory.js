@@ -40,7 +40,7 @@ function AddCategory({ onCategoryAdded, onNextClick }) {
 
   const fetchCategories = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/addcategories');
+      const response = await axios.get('https://pizza-house-api.vercel.app/addcategories');
       setCategories(response.data);
     } catch (error) {
       console.error('Failed to fetch categories', error);
@@ -85,7 +85,7 @@ function AddCategory({ onCategoryAdded, onNextClick }) {
 
         const formData = { name: categoryName, imageUrl };
 
-        const response = await axios.put(`http://localhost:5000/updateCategory/${editCategoryId}`, formData);
+        const response = await axios.put(`https://pizza-house-api.vercel.app/updateCategory/${editCategoryId}`, formData);
 
         if (response.status === 200) {
           setAlertMessage('Category updated successfully');
@@ -121,7 +121,7 @@ function AddCategory({ onCategoryAdded, onNextClick }) {
 
         const formData = { name: categoryName, imageUrl };
 
-        const response = await axios.post('http://localhost:5000/addCategories', formData);
+        const response = await axios.post('https://pizza-house-api.vercel.app/addCategories', formData);
 
         if (response.status === 201) {
           setAlertMessage(response.data.message);
@@ -154,7 +154,7 @@ function AddCategory({ onCategoryAdded, onNextClick }) {
 
   const handleRemove = async (categoryId) => {
     try {
-      const response = await axios.delete(`http://localhost:5000/deleteCategory/${categoryId}`);
+      const response = await axios.delete(`https://pizza-house-api.vercel.app/deleteCategory/${categoryId}`);
       if (response.status === 200) {
         setAlertMessage('Category removed successfully');
         setAlertType('success');
