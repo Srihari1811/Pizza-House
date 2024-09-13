@@ -101,7 +101,8 @@ body {
   max-width: 600px; /* Limit max width */
   text-align: center; /* Center the text */
   position: relative; /* For positioning */
-  margin: 10px 0; /* Margin for spacing */
+  margin: 0 auto;  /* Margin for spacing */
+  margin-bottom: 20px;
 }
 
 .alert {
