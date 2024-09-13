@@ -198,32 +198,52 @@ function AddProduct() {
   // Auto-hide alert messages after a delay
   useEffect(() => {
     if (alertMessage) {
-      const timer = setTimeout(() => setAlertMessage(null), 2000);
+      const timer = setTimeout(() => setAlertMessage(null), 5000);
       return () => clearTimeout(timer);
     }
   }, [alertMessage]);
 
   return (
     <div className="container mt-5 d-flex flex-column align-items-center">
-      {alertMessage ? (
-        <div className="alert alert-success w-100 text-center" role="alert" style={{ maxWidth: '600px' }}>
-          {alertMessage}
-          <div className="d-flex justify-content-center mt-3">
-            <button
-              className="btn btn-primary mx-2"
-              onClick={handleContinue}
-              style={{ borderRadius: '0.25rem' }}
-            >
-              Continue
-            </button>
-            <button
-              className="btn btn-secondary mx-2"
-              onClick={handleBack}
-              style={{ borderRadius: '0.25rem' }}
-            >
-              Back
-            </button>
-          </div>
+  {alertMessage ? (
+    <div
+      className="alert alert-success w-100 text-center"
+      role="alert"
+      style={{
+        maxWidth: '600px',
+        fontSize: '16px', // Adjust font size as needed
+        fontWeight: 'bold',
+        margin: '0 auto', // Center the alert horizontally
+        padding: '20px', // Add padding for better spacing
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        gap: '20px', // Space between text and buttons
+      }}
+    >
+      <div>{alertMessage}</div>
+      <div className="d-flex justify-content-center" style={{ gap: '20px' }}>
+        <button
+          className="btn btn-primary"
+          onClick={handleContinue}
+          style={{
+            borderRadius: '0.25rem',
+            padding: '10px 20px', // Adjust padding for better button size
+          }}
+        >
+          Continue
+        </button>
+        <button
+          className="btn btn-secondary"
+          onClick={handleBack}
+          style={{
+            borderRadius: '0.25rem',
+            padding: '10px 20px', // Adjust padding for better button size
+          }}
+        >
+          Back
+        </button>
+      </div>
         </div>
       ) : (
         <>
