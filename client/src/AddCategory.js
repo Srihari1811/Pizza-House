@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
 
 function AddCategory({ onCategoryAdded, onNextClick }) {
   const [categoryName, setCategoryName] = useState('');
-  const [categoryImage, setCategoryImage] = useState('');
+  const [categoryImage, setCategoryImage] = useState(null);
   const [categoryImageUrl, setCategoryImageUrl] = useState(''); // URL for the existing image
   const [categories, setCategories] = useState([]);
   const [alertMessage, setAlertMessage] = useState('');
@@ -14,9 +14,33 @@ function AddCategory({ onCategoryAdded, onNextClick }) {
   const [editCategoryId, setEditCategoryId] = useState(null);
   const fileInputRef = useRef(null); // Create a ref for the file input
 
+  // Function to validate file type
+  const validateFile = (file) => {
+    const allowedTypes = ['image/jpeg', 'image/png'];
+    return file && allowedTypes.includes(file.type);
+  };
+
+  // Handle file input change
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      if (validateFile(file)) {
+        setCategoryImage(file);
+        setCategoryImageUrl(URL.createObjectURL(file));
+        setAlertMessage(''); // Clear error message if file is valid
+      } else {
+        setAlertMessage('Please upload a .jpg or .png image only.');
+        setAlertType('error');
+        setCategoryImage(null);
+        setCategoryImageUrl(''); // Clear image preview
+        e.target.value = ''; // Clear the file input
+      }
+    }
+  };
+
   const fetchCategories = async () => {
     try {
-      const response = await axios.get('https://pizza-house-api.vercel.app/addcategories');
+      const response = await axios.get('http://localhost:5000/addcategories');
       setCategories(response.data);
     } catch (error) {
       console.error('Failed to fetch categories', error);
@@ -34,7 +58,7 @@ function AddCategory({ onCategoryAdded, onNextClick }) {
       const timer = setTimeout(() => {
         setAlertMessage('');
         fetchCategories();
-      }, 1000);
+      }, 3000);
 
       return () => clearTimeout(timer);
     }
@@ -49,6 +73,11 @@ function AddCategory({ onCategoryAdded, onNextClick }) {
         let imageUrl = categoryImageUrl; // Use existing image URL by default
 
         if (categoryImage) {
+          if (!validateFile(categoryImage)) {
+            setAlertMessage('Please upload a .jpg or .png image only.');
+            setAlertType('error');
+            return;
+          }
           const imageRef = ref(storage, `categories/${categoryImage.name}`);
           await uploadBytes(imageRef, categoryImage);
           imageUrl = await getDownloadURL(imageRef);
@@ -56,7 +85,7 @@ function AddCategory({ onCategoryAdded, onNextClick }) {
 
         const formData = { name: categoryName, imageUrl };
 
-        const response = await axios.put(`https://pizza-house-api.vercel.app/updateCategory/${editCategoryId}`, formData);
+        const response = await axios.put(`http://localhost:5000/updateCategory/${editCategoryId}`, formData);
 
         if (response.status === 200) {
           setAlertMessage('Category updated successfully');
@@ -79,6 +108,12 @@ function AddCategory({ onCategoryAdded, onNextClick }) {
         return;
       }
 
+      if (!validateFile(categoryImage)) {
+        setAlertMessage('Please upload a .jpg or .png image only.');
+        setAlertType('error');
+        return;
+      }
+
       try {
         const imageRef = ref(storage, `categories/${categoryImage.name}`);
         await uploadBytes(imageRef, categoryImage);
@@ -86,7 +121,7 @@ function AddCategory({ onCategoryAdded, onNextClick }) {
 
         const formData = { name: categoryName, imageUrl };
 
-        const response = await axios.post('https://pizza-house-api.vercel.app/addCategories', formData);
+        const response = await axios.post('http://localhost:5000/addCategories', formData);
 
         if (response.status === 201) {
           setAlertMessage(response.data.message);
@@ -119,7 +154,7 @@ function AddCategory({ onCategoryAdded, onNextClick }) {
 
   const handleRemove = async (categoryId) => {
     try {
-      const response = await axios.delete(`https://pizza-house-api.vercel.app/deleteCategory/${categoryId}`);
+      const response = await axios.delete(`http://localhost:5000/deleteCategory/${categoryId}`);
       if (response.status === 200) {
         setAlertMessage('Category removed successfully');
         setAlertType('success');
@@ -137,7 +172,7 @@ function AddCategory({ onCategoryAdded, onNextClick }) {
 
   const resetForm = () => {
     setCategoryName('');
-    setCategoryImage('');
+    setCategoryImage(null);
     setCategoryImageUrl('');
     setEditMode(false);
     setEditCategoryId(null);
@@ -149,15 +184,15 @@ function AddCategory({ onCategoryAdded, onNextClick }) {
       <div className="row">
         <div className="col-lg-6 mx-auto">
           <div className="card p-4 shadow-lg">
-            <h2 className="text-center mb-4" style={{color:"skyblue"}}>{editMode ? 'Update Category' : 'Add New Category'}</h2>
+            <h2 className="text-center mb-4" style={{ color: "skyblue" }}>{editMode ? 'Update Category' : 'Add New Category'}</h2>
             {alertMessage && (
-              <div className={`alert alert-${alertType}`} role="alert">
+              <div className={`alert alert-${alertType}`} style={{textAlign:"center",fontWeight:"bold"}} role="alert">
                 {alertMessage}
               </div>
             )}
             <form onSubmit={handleSubmit}>
               <div className="mb-3">
-                <label htmlFor="categoryName" style={{color:"skyblue"}} className="form-label">Category Name</label>
+                <label htmlFor="categoryName" style={{ color: "skyblue" }} className="form-label">Category Name</label>
                 <input
                   type="text"
                   className="form-control"
@@ -168,7 +203,7 @@ function AddCategory({ onCategoryAdded, onNextClick }) {
                 />
               </div>
               <div className="mb-3">
-                <label htmlFor="categoryImage"style={{color:"skyblue"}} className="form-label">Category Image</label>
+                <label htmlFor="categoryImage" style={{ color: "skyblue" }} className="form-label">Category Image</label>
                 {categoryImageUrl && !categoryImage && (
                   <img src={categoryImageUrl} alt="Category" className="img-thumbnail mb-3" style={{ maxHeight: '150px' }} />
                 )}
@@ -176,8 +211,8 @@ function AddCategory({ onCategoryAdded, onNextClick }) {
                   type="file"
                   className="form-control"
                   id="categoryImage"
-                  accept="image/*"
-                  onChange={(e) => setCategoryImage(e.target.files[0])}
+                  accept="image/jpeg, image/png"
+                  onChange={handleFileChange}
                   ref={fileInputRef} // Attach the ref to the input field
                   required={!editMode} // Required only when adding a new category
                 />
@@ -197,7 +232,7 @@ function AddCategory({ onCategoryAdded, onNextClick }) {
                 <div className="card h-100 shadow-sm">
                   <img src={category.imageUrl} className="card-img-top" alt={category.name} style={{ height: '200px', objectFit: 'cover' }} />
                   <div className="card-body text-center">
-                    <h5 className="card-title" style={{color:'white'}}>{category.name}</h5>
+                    <h5 className="card-title" style={{ color: 'white' }}>{category.name}</h5>
                     <button className="btn btn-warning me-2" onClick={() => handleEdit(category._id)}>Edit</button>
                     <button className="btn btn-danger" onClick={() => handleRemove(category._id)}>Remove</button>
                   </div>
