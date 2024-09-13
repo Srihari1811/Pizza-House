@@ -19,21 +19,6 @@ function HomePage() {
   const location = useLocation();
 
   useEffect(() => {
-    // Simulate fetching notification count
-    const fetchNotifications = async () => {
-      try {
-        // Replace with actual notification fetching logic
-        const response = await axios.get('https://pizza-house-api.vercel.app/notifications');
-        setNotificationCount(response.data.count);
-      } catch (error) {
-        console.error('Error fetching notifications:', error);
-      }
-    };
-
-    fetchNotifications();
-  }, []);
-
-  useEffect(() => {
     const fetchCategories = async () => {
       try {
         const response = await axios.get('https://pizza-house-api.vercel.app/addcategories');
@@ -153,21 +138,6 @@ function HomePage() {
           >
             Pizza House
           </Link>
-
-          {/* <button
-            type="button"
-            className="btn btn-light mt-2 position-relative"
-            onClick={() => navigate('/notifications')}
-          >
-            <i className="fas fa-bell"></i>
-            {notificationCount > 0 && (
-              <span className="badge rounded-pill bg-danger position-absolute top-0 end-0 translate-middle">
-                {notificationCount}
-              </span>
-            )}
-          </button> */}
-
-        
       </div>
 
       <div className="container mt-3">
@@ -187,7 +157,7 @@ function HomePage() {
             <div className="card-body">
               <h5 className="card-title">Special Deal</h5>
               <p className="card-text">Grab your favorite items at amazing prices!</p>
-              <Link to="/special-deals" className="btn" style={{ backgroundColor: 'black', color: 'yellow' }}>
+              <Link to="/" className="btn" style={{ backgroundColor: 'black', color: 'yellow' }}>
   Buy Now
 </Link>
             </div>
@@ -227,7 +197,7 @@ function HomePage() {
             </Link>
           </li>
           <li className="nav-item">
-            <Link className={`nav-link text-light text-center ${getActiveClass('/special-deals')}`} to="/special-deals">
+            <Link className={`nav-link text-light text-center ${getActiveClass('/special-deals')}`} to="/">
               <i className="fas fa-gift"></i>
               <div>Deals</div>
             </Link>
