@@ -7,13 +7,13 @@ import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyA6te1nUmq8nvmoPErxxW7DuqG8ifPtBrM",
-  authDomain: "onlinemenu-d5c62.firebaseapp.com",
-  projectId: "onlinemenu-d5c62",
-  storageBucket: "onlinemenu-d5c62.appspot.com",
-  messagingSenderId: "28005271571",
-  appId: "1:28005271571:web:58cd61309054de45d417e6",
-  measurementId: "G-5FQJD5J9D1"
+  apiKey: "AIzaSyCAzJ1wG0CmE7Okuk0-yWfkFujlpoHZqM0",
+  authDomain: "pizzahouse-8a2d2.firebaseapp.com",
+  projectId: "pizzahouse-8a2d2",
+  storageBucket: "pizzahouse-8a2d2.appspot.com",
+  messagingSenderId: "371904993937",
+  appId: "1:371904993937:web:c5754c0a4ef7f0827bfd30",
+  measurementId: "G-LREMKSFXVW"
 };
 
 const app = initializeApp(firebaseConfig);
@@ -22,3 +22,6 @@ const app = initializeApp(firebaseConfig);
 const storage = getStorage(app);
 
 export { storage, ref, uploadBytes, getDownloadURL};
+
+
+
